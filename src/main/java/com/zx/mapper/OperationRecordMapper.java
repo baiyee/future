@@ -1,6 +1,6 @@
-package com.zx.future.mapper;
+package com.zx.mapper;
 
-import com.zx.future.model.OperationRecord;
+import com.zx.model.OperationRecord;
 
 public interface OperationRecordMapper {
     int deleteByPrimaryKey(Long id);

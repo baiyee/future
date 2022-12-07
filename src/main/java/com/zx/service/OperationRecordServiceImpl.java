@@ -1,10 +1,10 @@
-package com.zx.future.service;
+package com.zx.service;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import com.zx.future.model.OperationRecord;
-import com.zx.future.mapper.OperationRecordMapper;
-import com.zx.future.service.OperationRecordService;
+import com.zx.model.OperationRecord;
+import com.zx.mapper.OperationRecordMapper;
+
 @Service
 public class OperationRecordServiceImpl implements OperationRecordService{
 

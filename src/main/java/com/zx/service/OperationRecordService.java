@@ -1,6 +1,6 @@
-package com.zx.future.service;
+package com.zx.service;
 
-import com.zx.future.model.OperationRecord;
+import com.zx.model.OperationRecord;
 public interface OperationRecordService{
 
 
