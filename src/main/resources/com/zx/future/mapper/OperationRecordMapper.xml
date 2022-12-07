@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.future.mapper.OperationRecordMapper">
+  <resultMap id="BaseResultMap" type="com.zx.future.model.OperationRecord">
+    <!--@mbg.generated-->
+    <!--@Table operation_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="identifier" jdbcType="VARCHAR" property="identifier" />
+    <result column="operation_type" jdbcType="VARCHAR" property="operationType" />
+    <result column="service_name" jdbcType="VARCHAR" property="serviceName" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="update_by" jdbcType="INTEGER" property="updateBy" />
+    <result column="update_name" jdbcType="VARCHAR" property="updateName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, identifier, operation_type, service_name, content, update_by, update_name, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from operation_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from operation_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zx.future.model.OperationRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into operation_record (identifier, operation_type, service_name, 
+      content, update_by, update_name, 
+      update_time)
+    values (#{identifier,jdbcType=VARCHAR}, #{operationType,jdbcType=VARCHAR}, #{serviceName,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{updateBy,jdbcType=INTEGER}, #{updateName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zx.future.model.OperationRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into operation_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="identifier != null">
+        identifier,
+      </if>
+      <if test="operationType != null">
+        operation_type,
+      </if>
+      <if test="serviceName != null">
+        service_name,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateName != null">
+        update_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="identifier != null">
+        #{identifier,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null">
+        #{operationType,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null">
+        #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.future.model.OperationRecord">
+    <!--@mbg.generated-->
+    update operation_record
+    <set>
+      <if test="identifier != null">
+        identifier = #{identifier,jdbcType=VARCHAR},
+      </if>
+      <if test="operationType != null">
+        operation_type = #{operationType,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null">
+        service_name = #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateName != null">
+        update_name = #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.future.model.OperationRecord">
+    <!--@mbg.generated-->
+    update operation_record
+    set identifier = #{identifier,jdbcType=VARCHAR},
+      operation_type = #{operationType,jdbcType=VARCHAR},
+      service_name = #{serviceName,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=INTEGER},
+      update_name = #{updateName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
