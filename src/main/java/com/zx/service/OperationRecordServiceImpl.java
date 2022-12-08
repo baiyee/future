@@ -1,5 +1,8 @@
 package com.zx.service;
 
+import com.zx.config.orika.OrikaBeanMapper;
+import com.zx.log.BusinessCompose;
+import com.zx.vo.OperationRecordVO;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.zx.model.OperationRecord;
@@ -11,8 +14,15 @@ public class OperationRecordServiceImpl implements OperationRecordService{
     @Resource
     private OperationRecordMapper operationRecordMapper;
 
+    @Resource
+    private OrikaBeanMapper orikaBeanMapper;
+
     @Override
     public int deleteByPrimaryKey(Long id) {
+        OperationRecord operationRecord = operationRecordMapper.selectByPrimaryKey(id);
+        OperationRecordVO vo = orikaBeanMapper.map(operationRecord, OperationRecordVO.class);
+        BusinessCompose businessCompose = new BusinessCompose(vo);
+        businessCompose.exec();
         return operationRecordMapper.deleteByPrimaryKey(id);
     }
 
@@ -28,6 +38,10 @@ public class OperationRecordServiceImpl implements OperationRecordService{
 
     @Override
     public OperationRecord selectByPrimaryKey(Long id) {
+        OperationRecord operationRecord = operationRecordMapper.selectByPrimaryKey(id);
+        OperationRecordVO vo = orikaBeanMapper.map(operationRecord, OperationRecordVO.class);
+        BusinessCompose businessCompose = new BusinessCompose(vo);
+        businessCompose.exec();
         return operationRecordMapper.selectByPrimaryKey(id);
     }
 
