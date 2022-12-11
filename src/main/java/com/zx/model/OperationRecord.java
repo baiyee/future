@@ -8,12 +8,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.zx.log.OperationField;
 import com.zx.log.OperationResult;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -23,7 +21,7 @@ import lombok.Data;
  */
 @Data
 @TableName("OPERATION_RECORD")
-@ApiModel(value = "操作记录对象")
+@Schema(name = "操作记录对象")
 public class OperationRecord extends Model<OperationRecord> {
     /**
      * id
