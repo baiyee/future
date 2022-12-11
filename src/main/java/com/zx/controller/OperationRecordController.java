@@ -1,6 +1,5 @@
 package com.zx.controller;
 
-import com.zx.config.orika.OrikaBeanMapper;
 import com.zx.log.OperationLog;
 import com.zx.model.OperationRecord;
 import com.zx.service.OperationRecordService;
@@ -25,14 +24,13 @@ public class OperationRecordController {
     private OperationRecordService operationRecordService;
 
 
-
     /**
      * 通过主键查询单条数据
      *
      * @param id 主键
      * @return 单条数据
      */
-    @OperationLog(typeName = "查询单个日志",serviceName = "OperationRecordController")
+    @OperationLog(typeName = "查询单个日志", serviceName = "OperationRecordController")
     @GetMapping("selectOne")
     public OperationRecord selectOne(Long id) {
         return operationRecordService.selectByPrimaryKey(id);
@@ -45,7 +43,7 @@ public class OperationRecordController {
      * @param id 主键
      * @return 单条数据
      */
-    @OperationLog(typeName = "删除单个日志",serviceName = "OperationRecordController")
+    @OperationLog(typeName = "删除单个日志", serviceName = "OperationRecordController")
     @GetMapping("delete")
     public int delete(Long id) {
         int i = operationRecordService.deleteByPrimaryKey(id);

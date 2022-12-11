@@ -22,7 +22,7 @@ public class OperationResult {
     private String operation;
 
     @Getter
-    private Integer updateBy;
+    private Long updateBy;
 
     @Getter
     private String updateName;

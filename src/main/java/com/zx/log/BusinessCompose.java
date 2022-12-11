@@ -1,17 +1,12 @@
 package com.zx.log;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.NumberUtil;
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.zx.model.OperationRecord;
 import com.zx.vo.OperationRecordVO;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 业务装饰者类
@@ -47,8 +42,8 @@ public class BusinessCompose extends AbstractLogComposite<OperationRecord> {
     }
 
     public void exec() {
+        vo.addOperation(getUser());
         this.beforeLog(vo);
-
         vo.setPicture("http://img.daimg.com/uploads/allimg/220407/3-22040H31Z0.jpg");
         this.afterLog(vo,vo.getIdentifier());
     }

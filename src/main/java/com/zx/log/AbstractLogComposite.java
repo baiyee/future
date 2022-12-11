@@ -3,6 +3,8 @@ package com.zx.log;
 import com.zx.model.UpsUser;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 /**
  * 抽象的日志组合对象
  *
@@ -52,4 +54,7 @@ public abstract class AbstractLogComposite<T> {
             model.setExt3(ext3);
         }
     }
+
+
+
 }

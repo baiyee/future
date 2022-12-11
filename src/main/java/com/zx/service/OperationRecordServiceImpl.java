@@ -2,6 +2,7 @@ package com.zx.service;
 
 import com.zx.config.orika.OrikaBeanMapper;
 import com.zx.log.BusinessCompose;
+import com.zx.model.UpsUser;
 import com.zx.vo.OperationRecordVO;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -40,6 +41,7 @@ public class OperationRecordServiceImpl implements OperationRecordService{
     public OperationRecord selectByPrimaryKey(Long id) {
         OperationRecord operationRecord = operationRecordMapper.selectByPrimaryKey(id);
         OperationRecordVO vo = orikaBeanMapper.map(operationRecord, OperationRecordVO.class);
+        vo.setUser(new UpsUser().setId(1L).setName("admin"));
         BusinessCompose businessCompose = new BusinessCompose(vo);
         businessCompose.exec();
         return operationRecordMapper.selectByPrimaryKey(id);

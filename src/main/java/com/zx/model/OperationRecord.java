@@ -66,7 +66,7 @@ public class OperationRecord extends Model<OperationRecord> {
      * 更新者ID
      */
     @TableField("UPDATE_BY")
-    private Integer updateBy;
+    private Long updateBy;
 
     /**
      * 更新人
@@ -117,5 +117,19 @@ public class OperationRecord extends Model<OperationRecord> {
         this.ext1 = result.getExt1();
         this.ext2 = result.getExt2();
         this.ext3 = result.getExt3();
+    }
+
+
+    /**
+     * 添加用户信息
+     *
+     * @param user 用户信息
+     */
+    public void addOperation(UpsUser user) {
+        if (user != null) {
+            this.updateBy = user.getId() == null ? null : user.getId();
+            this.updateName = user.getName();
+        }
+        this.updateTime = LocalDateTime.now();
     }
 }
